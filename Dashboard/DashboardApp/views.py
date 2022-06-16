@@ -61,7 +61,7 @@ def home(request):
 
         print(time_list)
         print(body_temp_list)
-        print(sex)
+        print(profile_pic_name)
     else:
         print("User with username does not exists")
     context = { "time_list": time_list[1:], "body_temp_list" : body_temp_list,"user":request.session['username'], "Temperature":Temperature, "Humidity":Humidity, "aqi":aqi,"Body_Temperature":Body_Temperature,"profile_pic_name":profile_pic_name,"height":height,"weight":weight,"sex":sex,"blood_group":blood_group,"bmi":bmi,"age":age}
