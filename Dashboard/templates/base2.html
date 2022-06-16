@@ -1,0 +1,138 @@
+{% load static %}
+ 
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home page</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <link rel="stylesheet" href="{% static 'style.css' %}"> 
+</head>
+
+<body>
+
+    <div class="navbar">
+        <img src="{% static 'logo.png' %}" alt="logo">
+        <h1>SWASTHYA<br>MITRA</h1>
+        <a href="home">Home</a>
+        <a href="editProfile">Edit profile</a>
+        <a href="about">About us</a>
+        <a href="logout">Sign out</a>
+    </div>
+
+    <div class="main">
+        <div class="content">
+            <div class="profile">
+                <div class="profile-intro">
+                    <img src="{% static 'images/profile_pics/profile_pic_name '%}" alt="icon">
+                    <h1>Welcome Back <br>{{ user }}</h1>
+                    <h3>You checked-in last on<br>6 February 2022</h3>
+                </div>
+                <div class="profile-stats">
+                    <div>
+                        <h3>Age: {{ age }}</h3>
+                    </div>
+                    <div>
+                        <h3>Height: {{ height }}</h3>
+                    </div>
+                    <div>
+                        <h3>Sex: {{ sex }}</h3>
+                    </div>
+                    <div>
+                        <h3>Weight: {{ weight }}</h3>
+                    </div>
+                    <div>
+                        <h3>Blood: {{ blood_group }}</h3>
+                    </div>
+                    <div>
+                        <h3>BMI: {{ bmi }}</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="readings">
+                <div>
+                    <h3>Body <br>Temperature</h3>
+                    <h1>{{ Body_Temperature}}°C</h1>
+                </div>
+                <div>
+                    <h3>Pulse Rate</h3>
+                    <h1>60 bpm</h1>
+                </div>
+                <div>
+                    <h3>Temperature</h3>
+                    <h1>{{ Temperature }}°C</h1>
+                </div>
+                <div>
+                    <h3>Humidity</h3>
+                    <h1>{{ Humidity }}%</h1>
+                </div>
+                <div>
+                    <h3>Air Quality</h3>
+                    <h1>{{ aqi }}</h1>
+                </div>
+            </div>
+            <div class="graphs">
+                <div><canvas id="bodyTemp" width="500" height="250"></canvas></div>
+                <div><canvas id="pulseRate" width="500" height="250"></canvas></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+        const ctx = document.getElementById('bodyTemp');
+        const bodyTemp = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: {{ time_list|safe }},
+            datasets: [{
+                label: 'Body Temperature in °C',
+                data: {{ body_temp_list|safe }},
+                borderWidth: 1
+                }]
+            },
+            options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+        });
+
+        // Pulse Rate graph
+        const ctx2 = document.getElementById('pulseRate');
+        const pulseRate = new Chart(ctx2, {
+            type: 'line',
+            data: {
+                labels: {{ time_list|safe }},
+            datasets: [{
+                label: 'Pulse Rate in bpm',
+                data: {{ body_temp_list|safe }},
+                borderWidth: 1
+                }]
+            },
+            options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+        });
+
+        
+
+    </script> 
+
+</body>
+
+</html>

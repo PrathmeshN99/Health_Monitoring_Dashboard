@@ -1,0 +1,99 @@
+body{
+    font-family: "Montserrat";
+}
+
+.navbar{
+    height: 100%;
+    width: 330px;
+    position: fixed;
+    background-color: #F5EEDC;
+    padding-top: 30px;
+    z-index: 1;
+    top:0;
+    left:0;
+}
+
+.navbar img{
+    width: 150px;
+    display: block;
+    margin: 0 auto 20px;
+}
+
+.navbar h1{
+    font-weight: bolder;
+    display: block;
+    text-align: center;
+    margin-bottom: 70px;
+}
+
+.navbar a{
+    color: rgb(68, 68, 68);
+    font-size: 20px;
+    display: block;
+    margin: 20px auto;
+    padding-left: 100px;
+    text-decoration: none;
+}
+
+.navbar a:hover{
+    color: #000;
+}
+
+.main{
+    margin-left: 330px; 
+    height: 100vh;
+   
+}
+
+.content{
+    display: grid;
+    height: 100%;
+    grid-template-rows: 0.75fr 0.6fr 1fr;
+}
+
+.profile{
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+}
+
+
+.profile img{
+    width: 200px;
+    border-radius: 50%;
+    margin-right: 40px;
+    margin-left: 40px;
+    float: left;
+}
+
+.profile-intro{
+    padding-top: 15px;
+}
+
+.profile-stats{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    margin: 20px 150px 50px 10px;
+}
+
+.readings{
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    margin: 0 20px;
+}
+
+.readings div{
+    margin: 0px 15px 30px 15px;
+    background-color: #DD4A48;
+    border-radius: 20px;
+    padding: 0 10px 0px 15px;
+}
+
+.graphs{
+    /* background-color: rgb(255, 238, 0); */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 30px;
+    margin: 0 30px;
+}
+

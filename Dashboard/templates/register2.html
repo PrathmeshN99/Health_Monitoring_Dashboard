@@ -1,0 +1,55 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css href="{% static 'style.css' %}">
+</head>
+
+
+<body>
+    <div class="register-body">
+        <div class="register-content">
+            <h1>Let's sign you up!</h1>
+            <form method="POST" name="register">
+            {% csrf_token %}
+            <input type="text" class="form-control" name="username" id="name" placeholder="Name">
+            <input type="text" class="form-control" name="first_name" id="name" placeholder="First Name">
+            <input type="text" class="form-control" name="last_name" id="name" placeholder="Last Name">
+            <input type="email" class="form-control" name="email" id="name" placeholder="Email">
+
+            <select class="form-select" name="sex" aria-label="Default select example">
+                <option selected>Sex</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Rather not say">Rather not say</option>
+            </select>
+            <input type="text" name="age" id="age" placeholder="Age">
+            <select class="form-select" name = "blood_group" aria-label="Default select example">
+                <option selected>Blood group</option>
+                <option value="A+">A+</option>
+                <option value="A-">A-</option>
+                <option value="B+">B+</option>
+                <option value="B-">B+</option>
+                <option value="AB+">AB+</option>
+                <option value="AB-">AB-</option>
+                <option value="O+">O+</option>
+                <option value="O-">O-</option>
+            </select>
+                <input type="text" name="height" id="height" placeholder="Height(in cms)">
+                <input type="text" name="weight" id="weight" placeholder="Weight(in kgs)">
+                <input type="file" accept=".jpg,.jpeg,.png" name="profile_pic" id="image">
+                <label for="password">Choose a strong password</label>
+                <input type="password" name="password" id="password" placeholder="Password">
+                <button type="submit" class="btn btn-primary">Create my account</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

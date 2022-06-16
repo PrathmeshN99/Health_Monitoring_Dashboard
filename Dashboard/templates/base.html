@@ -9,18 +9,19 @@
 
 </head>
 <body>
+    <button type="submit" name="logout">Log out</button>
     <h1>BASE</h1>
     <canvas id="myChart" width="400" height="400"></canvas>
 </body>
 <script>
 const ctx = document.getElementById('myChart');
-const myChart = new Chart(ctx, {
+const myChart = new Chart(ctx, {    
     type: 'bar',
     data: {
-        labels: {{ time|safe }},
+        labels: {{ time_list|safe }},
         datasets: [{
             label: '# of Votes',
-            data: {{ temp|safe }},
+            data: {{ body_temp_list|safe }},
             borderWidth: 1
         }]
     },
