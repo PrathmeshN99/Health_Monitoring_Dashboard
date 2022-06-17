@@ -1,5 +1,5 @@
 {% load static %}
- 
+{% static "images/profile_pics/" as baseurl %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -32,7 +32,7 @@
         <div class="content">
             <div class="profile">
                 <div class="profile-intro">
-                    <img src="{% static 'images/profile_pics/profile_pic_name '%}" alt="icon">
+                    <img src="{{ baseurl }}/Screenshot_38.png" alt="icon">
                     <h1>Welcome Back <br>{{ user }}</h1>
                     <h3>You checked-in last on<br>6 February 2022</h3>
                 </div>

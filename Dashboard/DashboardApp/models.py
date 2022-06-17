@@ -16,7 +16,7 @@ class Record(models.Model):
 class Profile(models.Model):
     username = models.CharField(max_length=50,default="Null")
     user = models.OneToOneField(User, on_delete=models.CASCADE) # Delete profile when user is deleted
-    profile_pic = models.ImageField(default='default.jpg', upload_to='profile_pics')
+    profile_pic = models.ImageField(default='default.jpg',upload_to='profile_pics')
     sex = models.CharField(max_length=10,null=True)
     age = models.IntegerField(null=True)
     weight = models.FloatField(null=True)

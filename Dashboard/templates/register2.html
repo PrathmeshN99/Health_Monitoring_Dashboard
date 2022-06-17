@@ -10,10 +10,36 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css href="{% static 'style.css' %}">
+
+    <style>
+      .register-body {
+        height: 100vh;
+        background-image: url('healthcare.jpg');
+      }
+  
+      .register-content {
+        height: 90%;
+        width: 90%;
+        background: rgba(80, 80, 80, 0.1);
+        backdrop-filter: blur(0.5rem);
+      }
+  
+      .blah {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-bottom: 20px;
+      }
+  
+      .blah>* {
+        width: 30%;
+      }
+    </style>
 </head>
 
 
-<body>
+<body background="{% static 'healthcare2.jpg' %}" style="background-repeat: no-repeat; background-size: cover;">
     <div class="register-body">
         <div class="register-content">
             <h1>Let's sign you up!</h1>
