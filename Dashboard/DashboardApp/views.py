@@ -23,8 +23,6 @@ def home(request):
 
     data = requests.get(base_urls).json()
 
-    def noNull(x):
-        if x==None: Record.objects.filter(Humidity__isnull = False)
             
     data_req = data['feeds'] 
     for i in range(len(data_req)):
@@ -62,6 +60,7 @@ def home(request):
         time_list.append(obj)
     if Record.objects.filter(User=request.session['username']).exists():
         body_temp_list = list(Record.objects.filter(User=request.session['username']).values_list('Body_Temperature',flat=True))
+        aqi_list = list(Record.objects.filter(User=request.session['username']).values_list('AQI',flat=True))
         datetime_queryset = pd.Series(Record.objects.filter(User=request.session['username']).values_list('Time_stamp',flat=True))
         datetime_queryset.apply(func)
         Temperature = decimal(data_req[0]['field2'])
@@ -76,7 +75,7 @@ def home(request):
             sex = Profile.objects.filter(username=request.session['username']).values('sex')[0]['sex'][0]
             weight = Profile.objects.filter(username=request.session['username']).values('weight')[0]['weight']
             blood_group = Profile.objects.filter(username=request.session['username']).values('blood_group')[0]['blood_group']
-            bmi = round(weight/(height*height),2)    
+            bmi = (round(weight/(height*height*0.01*0.01),2))
 
         else: 
             profile_pic_name = 'Not provided' 
@@ -92,7 +91,7 @@ def home(request):
         print(profile_pic_name)
     else:
         print("User with username does not exists")
-    context = { "time_list": time_list[1:], "body_temp_list" : body_temp_list,"user":request.session['username'], "Temperature":Temperature, "Humidity":Humidity, "aqi":aqi,"Body_Temperature":Body_Temperature,"profile_pic_name":"AB.jpg","height":height,"weight":weight,"sex":sex,"blood_group":blood_group,"bmi":bmi,"age":age}
+    context = { "time_list": time_list[1:], "body_temp_list" : body_temp_list,"aqi_list":aqi_list,"user":request.session['username'], "Temperature":Temperature, "Humidity":Humidity, "aqi":aqi,"Body_Temperature":Body_Temperature,"profile_pic_name":"AB.jpg","height":height,"weight":weight,"sex":sex,"blood_group":blood_group,"bmi":bmi,"age":age}
 
     return render(request,'base2.html',context)
 

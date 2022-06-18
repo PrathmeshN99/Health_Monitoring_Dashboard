@@ -32,9 +32,8 @@
         <div class="content">
             <div class="profile">
                 <div class="profile-intro">
-                    <img src="{{ baseurl }}/Screenshot_38.png" alt="icon">
+                    <img src="{% static 'gautam.jpeg' %}" alt="icon">
                     <h1>Welcome Back <br>{{ user }}</h1>
-                    <h3>You checked-in last on<br>6 February 2022</h3>
                 </div>
                 <div class="profile-stats">
                     <div>
@@ -109,14 +108,14 @@
         });
 
         // Pulse Rate graph
-        const ctx2 = document.getElementById('pulseRate');
+        const ctx2 = document.getElementById('AQI');
         const pulseRate = new Chart(ctx2, {
             type: 'line',
             data: {
                 labels: {{ time_list|safe }},
             datasets: [{
-                label: 'Pulse Rate in bpm',
-                data: {{ body_temp_list|safe }},
+                label: 'Air quality index(AQI)',
+                data: {{ aqi_list|safe }},
                 borderWidth: 1
                 }]
             },

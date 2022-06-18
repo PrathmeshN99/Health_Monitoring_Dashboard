@@ -1,12 +1,96 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>About us</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="style.css"> -->
+
+    <style>
+        .navbar {
+            display: block;
+            height: 100%;
+            width: 330px;
+            position: fixed;
+            background-color: #F5EEDC;
+            padding-top: 30px;
+            z-index: 1;
+            top: 0;
+            left: 0;
+        }
+
+        .navbar img {
+            width: 150px;
+            display: block;
+            margin: 0 auto 20px;
+        }
+
+        .navbar h1 {
+            font-weight: bolder;
+            display: block;
+            text-align: center;
+            margin-bottom: 70px;
+        }
+
+        .navbar a {
+            color: rgb(68, 68, 68);
+            font-size: 20px;
+            display: block;
+            margin: 20px auto;
+            padding-left: 100px;
+            text-decoration: none;
+        }
+
+        .navbar a:hover {
+            color: #000;
+        }
+
+        .main {
+            margin-left: 330px;
+            height: 100vh;
+        }
+
+        .about-content {
+            width: 50vw;
+            height: 50vh;
+            margin-left: 15vw;
+            margin-top: 20vh;
+        }
+    </style>
 </head>
+
 <body>
-    About 
+
+    <div class="navbar">
+        <img src="{% static 'logo.png' %}" alt="logo">
+        <h1>SWASTHYA<br>MITRA</h1>
+        <a href="home">Home</a>
+        <a href="editProfile">Edit profile</a>
+        <a href="about">About us</a>
+        <a href="logout">Sign out</a>
+    </div>
+
+    <div class="main">
+        <div class="about-content">
+            <h1>About Us</h1>
+            <br>
+            <h5>We, the students of Vishwakarma Institute of Technology Pune from Department of Multidisciplary
+                Engineering, have created this personalized IOT based
+                healthcare monitoring system. Created under the guidance of Prof. Mukund Kulkarni, our project aims to improve the field of personal healthcare and make it simpler and accessible.
+                <br>The users of this project should be able to check their health parameters easily through
+                visualization
+                and dashboard.<br><br>We hope that you find it useful!
+            </h5>
+        </div>
+    </div>
+
+
 </body>
+
 </html>
